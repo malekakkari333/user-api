@@ -61,3 +61,5 @@ From the root directory of the project, run:
 ```
 npm test
 ```
+
+tested with github actions ci.

@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.send('oppa ala zin europa'))
 
 app.use('/user', userRouter)
 

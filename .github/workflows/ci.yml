@@ -33,7 +33,7 @@ jobs:
         env:
           REDIS_URL: redis://localhost:6379 
   deploy:
-    needss: test
+    needs: test
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:

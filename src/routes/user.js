@@ -1,9 +1,23 @@
+/**
+ * @typedef User
+ * @property {string} username.required - Unique username - eg: malek
+ * @property {string} firstname - First name - eg: Malek
+ * @property {string} lastname - Last name - eg: Akkari
+ */
 const express = require('express')
 const userController = require('../controllers/user')
 
 const userRouter = express.Router()
 
 userRouter
+  /**
+   * Create a new user
+   * @route POST /user
+   * @group User - Operations about users
+   * @param {User.model} user.body.required - The user to create
+   * @returns {object} 201 - User created successfully
+   * @returns {Error} 400 - Wrong user parameters
+   */
   .post('/', (req, resp) => {
     userController.create(req.body, (err, res) => {
       let respObj

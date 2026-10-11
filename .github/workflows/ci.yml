@@ -31,4 +31,13 @@ jobs:
       - name: Run tests
         run: npm test 
         env:
-          REDIS_URL: redis://localhost:6379  
+          REDIS_URL: redis://localhost:6379 
+  deploy:
+    needss: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render deploy
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: curl -fsS "$RENDER_DEPLOY_HOOK_URL"
